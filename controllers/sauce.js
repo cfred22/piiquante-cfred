@@ -84,6 +84,13 @@ exports.getAllSauces = (req, res, next) => {
     .catch((error) => res.status(400).json({ error }));
 };
 
+
+/* ----------------------------------------------*/
+/* ---------------              -----------------*/
+/* -----------     LIKE DISLIKE       -----------*/
+/* ---------------              -----------------*/
+/* ----------------------------------------------*/
+
 exports.likeSauce = (req, res, next) => {
   console.log(" je suis dans le controller like "); // ok la route fonctionne
 
@@ -93,6 +100,7 @@ exports.likeSauce = (req, res, next) => {
         "userId": "623217ae385f7403afacfdcf',
         "like": -1
     }*/
+
   console.log("--> CONTENU req.body - du ctrl like");
   console.log(req.body.like);
 
@@ -116,14 +124,13 @@ exports.likeSauce = (req, res, next) => {
       // --> utiliser methode opérateur $push (mongodb)
       // --> utiliser methode opérateur $pull (mongodb)
 
-      // Mise en place d'un switch
+      // Mise en place d'un switch CASE
       switch (req.body.like) {
           
         case 1:
           //si le userliked est False et si like === 1
           if (
-            !sauce.usersLiked.includes(req.body.userId) &&
-            req.body.like === 1
+            !sauce.usersLiked.includes(req.body.userId) 
           ) {
             console.log(
               " --> userId n'est pas dans userLiked BDD et requête front like à 1  "
@@ -141,8 +148,7 @@ exports.likeSauce = (req, res, next) => {
         case -1:
           //like = -1 (dislikes = +1)
           if (
-            !sauce.usersDisliked.includes(req.body.userId) &&
-            req.body.like === -1
+            !sauce.usersDisliked.includes(req.body.userId) 
           ) {
             console.log(" --> userId est dans userLiked et dislikes = 1 ");
             // alors mise à jour sauce BDD
