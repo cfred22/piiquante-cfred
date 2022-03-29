@@ -9,6 +9,7 @@ const fs = require("fs");
 // Import du controller like
 const like = require("../controllers/sauce");
 
+/*** CRÉER UNE SAUCE ***/
 exports.createSauce = (req, res, next) => {
   const sauceObject = JSON.parse(req.body.sauce); // extraire sauce json de sauce.js
   delete sauceObject._id;
@@ -24,6 +25,7 @@ exports.createSauce = (req, res, next) => {
     .catch((error) => res.status(400).json({ error }));
 };
 
+/*** MODIFIER UNE SAUCE ***/
 exports.modifySauce = (req, res, next) => {
   const sauceObject = req.file
     ? {
@@ -55,6 +57,7 @@ exports.modifySauce = (req, res, next) => {
   });
 };
 
+/*** SUPPRIMER UNE SAUCE ***/
 exports.deleteSauce = (req, res, next) => {
   Sauce.findOne({ _id: req.params.id })
     .then(
@@ -72,17 +75,21 @@ exports.deleteSauce = (req, res, next) => {
     .catch((error) => res.status(500).json({ error }));
 };
 
+/*** AFFICHER UNE SEULE SAUCE ***/
 exports.getOneSauce = (req, res, next) => {
   Sauce.findOne({ _id: req.params.id })
     .then((sauce) => res.status(200).json(sauce))
     .catch((error) => res.status(404).json({ error }));
 };
 
+/*** AFFICHER TOUTES LES SAUCES ***/
 exports.getAllSauces = (req, res, next) => {
   Sauce.find()
     .then((sauces) => res.status(200).json(sauces))
     .catch((error) => res.status(400).json({ error }));
 };
+
+
 
 
 /* ----------------------------------------------*/
@@ -138,7 +145,9 @@ exports.likeSauce = (req, res, next) => {
             // mise à jour sauce BDD
             Sauce.updateOne(
               { _id: req.params.id },
-              { $inc: { likes: 1 }, $push: { usersLiked: req.body.userId } }
+              { $inc: { likes: 1 },
+                $push: { usersLiked: req.body.userId },
+              }
             )
               .then(() => res.status(201).json({ message: "Sauce like +1" }))
               .catch((error) => res.status(400).json({ error })); // Bad Request
@@ -154,8 +163,7 @@ exports.likeSauce = (req, res, next) => {
             // alors mise à jour sauce BDD
             Sauce.updateOne(
               { _id: req.params.id },
-              {
-                $inc: { dislikes: 1 },
+              { $inc: { dislikes: 1 },
                 $push: { usersDisliked: req.body.userId },
               }
             )
@@ -171,9 +179,8 @@ exports.likeSauce = (req, res, next) => {
             // alors mise à jour sauce BDD
             Sauce.updateOne(
               { _id: req.params.id },
-                {
-                    $inc: { likes: -1 },
-                    $pull: { usersLiked: req.body.userId }, // enlève une valeur numérique
+                { $inc: { likes: -1 },
+                  $pull: { usersLiked: req.body.userId }, // enlève une valeur numérique
                 }
             )
               .then(() => res.status(201).json({ message: "Sauce like 0" }))

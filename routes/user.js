@@ -1,6 +1,10 @@
 // Import d'express
 const express = require('express'); 
+
+// Import du routeur
 const router = express.Router();
+
+// Import du controller
 const userCtrl = require('../controllers/user');
 
 // Routes post pour sign & login 
