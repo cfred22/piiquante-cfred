@@ -16,11 +16,11 @@ wants to create a web application where users can add
 their favorite sauces and like or dislike the sauces added by others.
 
 ### Screenshot
-![Image text](<img src="https://user.oc-static.com/upload/2021/07/29/16275605596354_PiiquanteLogo.png" alt="Deux piments rouges dans dans un bol, avec le nom en rouge ">)
+![Image text](<img src="..documents/openclassrooms/p6_fred_clech/TheHottestReviews 2022-03-29 at 6.40.25 PM.jpg">)
 
 ## Installation
 ***
-Here are the dependancies you need to install:
+Here are the dependencies I had to install:
 ```
 // backend folder //
 
@@ -50,4 +50,3 @@ The app should reload automatically when you make a change to a file.
 Use Ctrl+C in the terminal to stop the local server.
 
 |:--------------|:-------------:|--------------:|
-| text-align left | text-align center | text-align right |
