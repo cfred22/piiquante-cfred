@@ -1,7 +1,6 @@
 // Importation du package multer (gestion de fichiers envoyés avec requête HTTP vers l'API)
 const multer = require('multer'); // npm install --save multer
 
-
 // Dictionnaire des différents fichiers MIME_TYPES 
 const MIME_TYPES = {
     'image/jpg': 'jpg',
@@ -9,7 +8,6 @@ const MIME_TYPES = {
     'image/gif' : 'gif',
     'image/png': 'png'
 };
-
 // Objet de configuration pour multer
 const storage = multer.diskStorage({  // ENR. sur disk
     destination: (req, file, callback) => { 
@@ -22,4 +20,4 @@ const storage = multer.diskStorage({  // ENR. sur disk
     }
 });
     
-module.exports = multer({ storage }).single('image');
+module.exports = multer({ storage, limits: { fileSize: 2097152 } }).single('image'); // Set a file size limit 'recommandations OWASP' ici 2 mo max

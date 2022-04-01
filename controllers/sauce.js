@@ -139,9 +139,7 @@ exports.likeSauce = (req, res, next) => {
           if (
             !sauce.usersLiked.includes(req.body.userId) 
           ) {
-            console.log(
-              " --> userId n'est pas dans userLiked BDD et requête front like à 1  "
-            );
+            console.log(" --> userId n'est pas dans userLiked BDD et requête front like à 1  ");
             // mise à jour sauce BDD
             Sauce.updateOne(
               { _id: req.params.id },

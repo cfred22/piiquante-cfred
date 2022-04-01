@@ -16,7 +16,8 @@ wants to create a web application where users can add
 their favorite sauces and like or dislike the sauces added by others.
 
 ### Screenshot
-![Image text](<img src="..documents/openclassrooms/p6_fred_clech/TheHottestReviews 2022-03-29 at 6.40.25 PM.jpg">)
+
+![Screenshot](TheHottestReviews 2022-03-29 at 6.40.25 PM.jpg)
 
 ## Installation
 ***
@@ -43,6 +44,7 @@ $ npm install multer
 > Then clone this repo https://github.com/OpenClassrooms-Student-Center/Web-Developer-P6
 > npm install
 > npm start
+> API adress : http://localhost:8081/
 
 Run npm start. This should both run the local server and launch your browser.
 If your browser fails to launch, or shows a 404 error, navigate your browser to http://localhost:8080.
