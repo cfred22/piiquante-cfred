@@ -41,9 +41,9 @@ $ npm install multer
 // frontend folder //
 
 Create a frontend folder
-Then clone this repo https://github.com/OpenClassrooms-Student-Center/Web-Developer-P6
-npm install
-npm start
+Then clone this repo https://github.com/OpenClassrooms-Student-Center/Web-Developer-P6 >
+npm install >
+npm start >
 API adress : http://localhost:8081/
 
 Run npm start. This should both run the local server and launch your browser.
