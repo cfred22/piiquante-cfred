@@ -17,7 +17,7 @@ their favorite sauces and like or dislike the sauces added by others.
 
 ### Screenshot
 
-![Screenshot](TheHottestReviews 2022-03-29 at 6.40.25 PM.jpg)
+![Screenshot](readme.jpg)
 
 ## Installation
 ***
